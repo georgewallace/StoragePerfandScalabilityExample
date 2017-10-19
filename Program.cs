@@ -158,8 +158,8 @@
 
         public static CloudBlobContainer[] GetRandomContainers()
         {
-            //   string connectionString = "";
-            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(JObject.Parse(File.ReadAllText("Config.json"))["StorageConnectionString"].ToString());
+            string connectionString = "";
+            CloudStorageAccount storageAccount = CloudStorageAccount.Parse(connectionString);
             IRetryPolicy exponentialRetryPolicy = new ExponentialRetry(TimeSpan.FromSeconds(2), 10);
             CloudBlobClient blobClient = storageAccount.CreateCloudBlobClient();
             blobClient.DefaultRequestOptions.RetryPolicy = exponentialRetryPolicy;
