@@ -10,7 +10,7 @@ sudo apt-get install dotnet-dev-1.0.1 -y
 
 echo "###Cloning the sample"
 cd /home/$1
-git clone https://github.com/seguler/azuredeploytest
+git clone https://github.com/georgewallace/StoragePerfandScalabilityExample
 cd azuredeploytest
 
 echo "###Inject the account name and key"
