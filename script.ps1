@@ -1,5 +1,5 @@
 $client = new-object System.Net.WebClient
-$client.DownloadFile(“https://dot.net/v1/dotnet-install.ps1",“./dotnet-install.ps1”)
+$client.DownloadFile("https://dot.net/v1/dotnet-install.ps1","./dotnet-install.ps1")
 ./dotnet-install.ps1
 
 Install-module posh-git
