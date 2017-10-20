@@ -10,6 +10,7 @@ cd StoragePerfandScalabilityExample
 dotnet restore
 dotnet build
 
+for($i=0; $i -lt 36; $i++)
 {
 $out = new-object byte[] 107374100; 
 (new-object Random).NextBytes($out); 
