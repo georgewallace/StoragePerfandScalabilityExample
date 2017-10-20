@@ -2,7 +2,7 @@ $client = new-object System.Net.WebClient
 $client.DownloadFile("https://dot.net/v1/dotnet-install.ps1","./dotnet-install.ps1")
 ./dotnet-install.ps1
 
-Write-host "Installing Posh-Git
+Write-host "Installing Posh-Git"
 Install-module posh-git -force
 
 Write-host "cloning repo"
