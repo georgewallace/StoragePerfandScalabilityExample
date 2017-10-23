@@ -1,6 +1,4 @@
-$env:Path += ";C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\dotnet\"
-$env:Path += ";C:\Documents and Settings\All Users\chocolatey\bin\"
-$env:Path += ";c:\program files\git\bin\"
+$env:Path += ";C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\dotnet\;C:\Documents and Settings\All Users\chocolatey\bin\;c:\program files\git\bin\"
 
 Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1" 
 ./dotnet-install.ps1
