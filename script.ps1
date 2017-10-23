@@ -1,7 +1,5 @@
-$env:Path += ";C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\dotnet\;C:\Documents and Settings\All Users\chocolatey\bin\;c:\program files\git\bin\"
-
 Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1" 
-./dotnet-install.ps1
+./dotnet-install.ps1 -InstallDir c:\dotnet
 
 Write-host "Installing Posh-Git"
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -force
