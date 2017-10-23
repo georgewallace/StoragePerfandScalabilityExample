@@ -1,6 +1,6 @@
-Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1"
+Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1" 
 ./dotnet-install.ps1
-
+SET "PATH=%PATH%;C:\Windows\System32\config\systemprofile\AppData\Local\Microsoft\dotnet"
 Write-host "Installing Posh-Git"
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -force
 
