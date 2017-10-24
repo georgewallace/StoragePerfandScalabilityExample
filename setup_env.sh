@@ -31,7 +31,7 @@ do
 done
 
 echo "###Resetting the permissions"
-cd /home/$1/azuredeploytest
+cd /home/$1/StoragePerfandScalabilityExample
 chown -R $1 .
 
 echo "###done"
