@@ -1,3 +1,4 @@
+Start-Transcript
 Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1" 
 ./dotnet-install.ps1 -InstallDir c:\dotnet
 
@@ -35,3 +36,4 @@ $out = new-object byte[] 107374100;
 }
 
 Write-Host $error
+Stop-Transcript
