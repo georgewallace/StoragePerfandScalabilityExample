@@ -30,7 +30,7 @@ Set-Location d:\perffiles
 Write-host "cretting files"
 for($i=0; $i -lt 36; $i++)
 {
-$out = new-object byte[] 107374100; 
+$out = new-object byte[] 1073741824; 
 (new-object Random).NextBytes($out); 
 [IO.File]::WriteAllBytes("d:\perffiles\$([guid]::NewGuid().ToString()).txt", $out)
 }
