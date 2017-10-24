@@ -1,6 +1,6 @@
 Start-Transcript
 Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1" 
-./dotnet-install.ps1 -InstallDir c:\dotnet
+./dotnet-install.ps1 -Channel 2.0 -InstallDir c:\dotnet
 
 Write-host "Installing Posh-Git"
 Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -force
@@ -16,14 +16,14 @@ choco install git -y
 New-Item -ItemType Directory -Path c:\git -Force
 Set-Location c:\git
 Write-host "cloning repo"
-git.exe clone https://github.com/georgewallace/StoragePerfandScalabilityExample
+C:\Program Files\Git\cmd\git.exe clone https://github.com/georgewallace/StoragePerfandScalabilityExample
 
 write-host "Changing directory to $((Get-Item -Path ".\" -Verbose).FullName)"
 Set-Location c:\git\StoragePerfandScalabilityExample
 
 Write-host "restoring nuget packages"
-dotnet.exe restore
-dotnet.exe build
+c:\dotnet\dotnet.exe restore
+c:\dotnet\dotnet.exe build
 
 New-Item -ItemType Directory d:\perffiles
 Set-Location d:\perffiles
