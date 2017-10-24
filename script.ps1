@@ -40,7 +40,7 @@ $OldPath=(Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session
 $dotnetpath = "c:\dotnet"
 IF(Test-Path -Path $dotnetpath)
 {
-$NewPath=$OldPath+’;’+$dotnetpath
+$NewPath=$OldPath+';'+$dotnetpath
 Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $NewPath
 }
 
