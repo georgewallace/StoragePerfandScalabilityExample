@@ -35,5 +35,13 @@ $out = new-object byte[] 107374100;
 [IO.File]::WriteAllBytes("d:\perffiles\$([guid]::NewGuid().ToString()).txt", $out)
 }
 
-Write-Host $error
+$OldPath=(Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).Path
+
+$dotnetpath = "c:\dotnet"
+IF(Test-Path -Path $dotnetpath)
+{
+$NewPath=$OldPath+’;’+$dotnetpath
+Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $NewPath
+}
+
 Stop-Transcript
