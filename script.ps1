@@ -16,7 +16,7 @@ choco install git -y
 New-Item -ItemType Directory -Path c:\git -Force
 Set-Location c:\git
 Write-host "cloning repo"
-C:\Program Files\Git\cmd\git.exe clone https://github.com/georgewallace/StoragePerfandScalabilityExample
+& 'C:\Program Files\git\cmd\git.exe' clone https://github.com/georgewallace/StoragePerfandScalabilityExample
 
 write-host "Changing directory to $((Get-Item -Path ".\" -Verbose).FullName)"
 Set-Location c:\git\StoragePerfandScalabilityExample
