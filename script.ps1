@@ -28,7 +28,7 @@ c:\dotnet\dotnet.exe build
 New-Item -ItemType Directory d:\perffiles
 Set-Location D:\git\StoragePerfandScalabilityExample\upload
 Write-host "cretting files"
-for($i=0; $i -lt 36; $i++)
+for($i=0; $i -lt 100; $i++)
 {
 $out = new-object byte[] 1073741824; 
 (new-object Random).NextBytes($out); 
