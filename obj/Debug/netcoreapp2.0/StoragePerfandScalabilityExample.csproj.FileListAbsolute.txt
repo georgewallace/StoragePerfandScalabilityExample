@@ -1,0 +1,11 @@
+C:\Git\StoragePerfandScalabilityExample\bin\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.deps.json
+C:\Git\StoragePerfandScalabilityExample\bin\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.runtimeconfig.json
+C:\Git\StoragePerfandScalabilityExample\bin\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.runtimeconfig.dev.json
+C:\Git\StoragePerfandScalabilityExample\bin\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.dll
+C:\Git\StoragePerfandScalabilityExample\bin\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.pdb
+C:\Git\StoragePerfandScalabilityExample\obj\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.csproj.CoreCompileInputs.cache
+C:\Git\StoragePerfandScalabilityExample\obj\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.AssemblyInfoInputs.cache
+C:\Git\StoragePerfandScalabilityExample\obj\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.AssemblyInfo.cs
+C:\Git\StoragePerfandScalabilityExample\obj\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.dll
+C:\Git\StoragePerfandScalabilityExample\obj\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.pdb
+C:\Git\StoragePerfandScalabilityExample\obj\Debug\netcoreapp2.0\StoragePerfandScalabilityExample.csprojResolveAssemblyReference.cache
