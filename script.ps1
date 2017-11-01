@@ -13,26 +13,26 @@ Invoke-WebRequest 'https://chocolatey.org/install.ps1' -OutFile "./choco-install
 choco install git -y
 
 
-New-Item -ItemType Directory -Path c:\git -Force
-Set-Location c:\git
+New-Item -ItemType Directory -Path D:\git -Force
+Set-Location D:\git
 Write-host "cloning repo"
 & 'C:\Program Files\git\cmd\git.exe' clone https://github.com/georgewallace/StoragePerfandScalabilityExample
 
 write-host "Changing directory to $((Get-Item -Path ".\" -Verbose).FullName)"
-Set-Location c:\git\StoragePerfandScalabilityExample
+Set-Location D:\git\StoragePerfandScalabilityExample
 
 Write-host "restoring nuget packages"
 c:\dotnet\dotnet.exe restore
 c:\dotnet\dotnet.exe build
 
 New-Item -ItemType Directory d:\perffiles
-Set-Location d:\perffiles
+Set-Location D:\git\StoragePerfandScalabilityExample\upload
 Write-host "cretting files"
 for($i=0; $i -lt 36; $i++)
 {
 $out = new-object byte[] 1073741824; 
 (new-object Random).NextBytes($out); 
-[IO.File]::WriteAllBytes("d:\perffiles\$([guid]::NewGuid().ToString()).txt", $out)
+[IO.File]::WriteAllBytes("D:\git\StoragePerfandScalabilityExample\upload\$([guid]::NewGuid().ToString()).txt", $out)
 }
 
 $OldPath=(Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).Path

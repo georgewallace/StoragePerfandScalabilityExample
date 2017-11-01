@@ -22,10 +22,14 @@
 
         static void Main(string[] args)
         {
+            string argument = "";
             var currentdir = System.IO.Directory.GetCurrentDirectory();
             ThreadPool.SetMinThreads(100, 4);
             ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
-            string argument = args.ToString();
+            if (args.Length > 0)
+            {
+                argument = args[0].ToString();
+            }
             switch (argument)
             {
                 case "upload":
@@ -136,7 +140,7 @@
                             {
                                 CloudBlockBlob blockBlob = container.GetBlockBlobReference(((CloudBlockBlob)blobItem).Name);
                                 Console.WriteLine("Starting download of {0} from container {1}", blockBlob.Name, container.Name);
-                                Tasks.Add(blockBlob.DownloadToFileAsync(blockBlob.Name, FileMode.Create, null, new BlobRequestOptions() { DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null));
+                                Tasks.Add(blockBlob.DownloadToFileAsync(directory.FullName + "\\" + blockBlob.Name, FileMode.Create, null, new BlobRequestOptions() { DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null));
                             }
                         }
                     }
