@@ -1,8 +1,7 @@
 {
   "profiles": {
     "StoragePerfandScalabilityExample": {
-      "commandName": "Project",
-      "commandLineArgs": "download"
+      "commandName": "Project"
     }
   }
 }

@@ -25,7 +25,7 @@ Write-host "restoring nuget packages"
 c:\dotnet\dotnet.exe restore
 c:\dotnet\dotnet.exe build
 
-New-Item -ItemType Directory d:\perffiles
+New-Item -ItemType Directory D:\git\StoragePerfandScalabilityExample\upload
 Set-Location D:\git\StoragePerfandScalabilityExample\upload
 Write-host "cretting files"
 for($i=0; $i -lt 100; $i++)

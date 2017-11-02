@@ -16,6 +16,7 @@ namespace StoragePerfandScalabilityExample
         private static CloudBlobClient blobClient;
         public const string LowerCaseAlphabet = "abcdefghijklmnopqrstuvwyxz";
 
+        // Retrieve the CloudBlobClient
         private static CloudBlobClient GetCloudBlobClient()
         {
             if (Util.blobClient == null)
@@ -26,6 +27,7 @@ namespace StoragePerfandScalabilityExample
             return Util.blobClient;
         }
 
+        // Load the connection string from the Config.json file.
         private static string LoadConnectionStringFromConfigration()
         {
             // How to create a storage connection string: http://msdn.microsoft.com/en-us/library/azure/ee758697.aspx
@@ -38,6 +40,7 @@ namespace StoragePerfandScalabilityExample
 #endif
         }
 
+        // Retrieves a storage account
         private static CloudStorageAccount GetStorageAccount()
         {
             if (Util.storageAccount == null)
@@ -49,6 +52,7 @@ namespace StoragePerfandScalabilityExample
             return Util.storageAccount;
         }
 
+        // Creates containers with random names
         public static CloudBlobContainer[] GetRandomContainers()
         {
             CloudBlobClient blobClient = GetCloudBlobClient();
@@ -64,6 +68,7 @@ namespace StoragePerfandScalabilityExample
             return blobContainers;
         }
 
+        // Generate a random string of characters.
         private static string GenerateString(int size, Random rng, string alphabet)
         {
             char[] chars = new char[size];
@@ -74,6 +79,7 @@ namespace StoragePerfandScalabilityExample
             return new string(chars);
         }
 
+        // Lists the containers in a storage account
         public static async Task<List<CloudBlobContainer>> ListContainers()
         {
             CloudBlobClient blobClient = GetCloudBlobClient();
@@ -89,6 +95,7 @@ namespace StoragePerfandScalabilityExample
             return containers;
         }
 
+        // Deletes the containers in a storage account.
         public static async Task DeleteExistingContainersAsync()
         {
             CloudBlobClient client = Util.GetCloudBlobClient();
