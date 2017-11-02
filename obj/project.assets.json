@@ -3593,11 +3593,11 @@
       "hideWarningsAndErrors": true
     },
     "restore": {
-      "projectUniqueName": "C:\\StoragePerfandScalabilityExample\\StoragePerfandScalabilityExample.csproj",
+      "projectUniqueName": "C:\\Git\\StoragePerfandScalabilityExample\\StoragePerfandScalabilityExample.csproj",
       "projectName": "StoragePerfandScalabilityExample",
-      "projectPath": "C:\\StoragePerfandScalabilityExample\\StoragePerfandScalabilityExample.csproj",
+      "projectPath": "C:\\Git\\StoragePerfandScalabilityExample\\StoragePerfandScalabilityExample.csproj",
       "packagesPath": "C:\\Users\\gwallace\\.nuget\\packages\\",
-      "outputPath": "C:\\StoragePerfandScalabilityExample\\obj\\",
+      "outputPath": "C:\\Git\\StoragePerfandScalabilityExample\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
@@ -3644,5 +3644,13 @@
         "warn": true
       }
     }
-  }
+  },
+  "logs": [
+    {
+      "code": "Undefined",
+      "level": "Warning",
+      "warningLevel": 1,
+      "message": "Problem reading the cache file C:\\Git\\StoragePerfandScalabilityExample\\obj\\StoragePerfandScalabilityExample.csproj.nuget.cache : Invalid property identifier character: <. Path 'version', line 3, position 0."
+    }
+  ]
 }
