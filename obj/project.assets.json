@@ -928,8 +928,6 @@
       "type": "package",
       "path": "microsoft.data.edm/5.8.2",
       "files": [
-        "Microsoft.Data.Edm.5.8.2.nupkg.sha512",
-        "Microsoft.Data.Edm.nuspec",
         "lib/net40/Microsoft.Data.Edm.dll",
         "lib/net40/Microsoft.Data.Edm.xml",
         "lib/net40/de/Microsoft.Data.Edm.resources.dll",
@@ -984,7 +982,9 @@
         "lib/sl4/ko/Microsoft.Data.Edm.resources.dll",
         "lib/sl4/ru/Microsoft.Data.Edm.resources.dll",
         "lib/sl4/zh-Hans/Microsoft.Data.Edm.resources.dll",
-        "lib/sl4/zh-Hant/Microsoft.Data.Edm.resources.dll"
+        "lib/sl4/zh-Hant/Microsoft.Data.Edm.resources.dll",
+        "microsoft.data.edm.5.8.2.nupkg.sha512",
+        "microsoft.data.edm.nuspec"
       ]
     },
     "Microsoft.Data.OData/5.8.2": {
@@ -992,8 +992,6 @@
       "type": "package",
       "path": "microsoft.data.odata/5.8.2",
       "files": [
-        "Microsoft.Data.OData.5.8.2.nupkg.sha512",
-        "Microsoft.Data.OData.nuspec",
         "lib/net40/Microsoft.Data.OData.dll",
         "lib/net40/Microsoft.Data.OData.xml",
         "lib/net40/de/Microsoft.Data.OData.resources.dll",
@@ -1048,7 +1046,9 @@
         "lib/sl4/ko/Microsoft.Data.OData.resources.dll",
         "lib/sl4/ru/Microsoft.Data.OData.resources.dll",
         "lib/sl4/zh-Hans/Microsoft.Data.OData.resources.dll",
-        "lib/sl4/zh-Hant/Microsoft.Data.OData.resources.dll"
+        "lib/sl4/zh-Hant/Microsoft.Data.OData.resources.dll",
+        "microsoft.data.odata.5.8.2.nupkg.sha512",
+        "microsoft.data.odata.nuspec"
       ]
     },
     "Microsoft.NETCore.App/2.0.0": {
@@ -2996,8 +2996,6 @@
       "type": "package",
       "path": "system.spatial/5.8.2",
       "files": [
-        "System.Spatial.5.8.2.nupkg.sha512",
-        "System.Spatial.nuspec",
         "lib/net40/System.Spatial.dll",
         "lib/net40/System.Spatial.xml",
         "lib/net40/de/System.Spatial.resources.dll",
@@ -3052,7 +3050,9 @@
         "lib/sl4/ko/System.Spatial.resources.dll",
         "lib/sl4/ru/System.Spatial.resources.dll",
         "lib/sl4/zh-Hans/System.Spatial.resources.dll",
-        "lib/sl4/zh-Hant/System.Spatial.resources.dll"
+        "lib/sl4/zh-Hant/System.Spatial.resources.dll",
+        "system.spatial.5.8.2.nupkg.sha512",
+        "system.spatial.nuspec"
       ]
     },
     "System.Text.Encoding/4.0.11": {
@@ -3559,8 +3559,6 @@
       "type": "package",
       "path": "windowsazure.storage/8.5.0",
       "files": [
-        "WindowsAzure.Storage.8.5.0.nupkg.sha512",
-        "WindowsAzure.Storage.nuspec",
         "lib/net45/Microsoft.WindowsAzure.Storage.dll",
         "lib/net45/Microsoft.WindowsAzure.Storage.pdb",
         "lib/net45/Microsoft.WindowsAzure.Storage.xml",
@@ -3573,7 +3571,9 @@
         "lib/wp8/Microsoft.WindowsAzure.Storage.dll",
         "lib/wp8/Microsoft.WindowsAzure.Storage.pdb",
         "lib/wpa/Microsoft.WindowsAzure.Storage.dll",
-        "lib/wpa/Microsoft.WindowsAzure.Storage.pdb"
+        "lib/wpa/Microsoft.WindowsAzure.Storage.pdb",
+        "windowsazure.storage.8.5.0.nupkg.sha512",
+        "windowsazure.storage.nuspec"
       ]
     }
   },
@@ -3589,12 +3589,15 @@
   },
   "project": {
     "version": "1.0.0",
+    "restoreSettings": {
+      "hideWarningsAndErrors": true
+    },
     "restore": {
-      "projectUniqueName": "C:\\Git\\StoragePerfandScalabilityExample\\StoragePerfandScalabilityExample.csproj",
+      "projectUniqueName": "C:\\StoragePerfandScalabilityExample\\StoragePerfandScalabilityExample.csproj",
       "projectName": "StoragePerfandScalabilityExample",
-      "projectPath": "C:\\Git\\StoragePerfandScalabilityExample\\StoragePerfandScalabilityExample.csproj",
+      "projectPath": "C:\\StoragePerfandScalabilityExample\\StoragePerfandScalabilityExample.csproj",
       "packagesPath": "C:\\Users\\gwallace\\.nuget\\packages\\",
-      "outputPath": "C:\\Git\\StoragePerfandScalabilityExample\\obj\\",
+      "outputPath": "C:\\StoragePerfandScalabilityExample\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
