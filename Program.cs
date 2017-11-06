@@ -17,49 +17,50 @@
     using Newtonsoft.Json.Linq;
     using StoragePerfandScalabilityExample;
 
+    /// <summary>
+    /// Azure Storage Performance and Scalability Sample - Demonstrate how to use use parallelism with. 
+    /// Azure blob storage in conjunction with large block sizes to transfer larges amount of data 
+    /// effectiviely and efficiently.
+    ///
+    /// Note: This sample uses the .NET 4.5 asynchronous programming model to demonstrate how to call the Storage Service using the 
+    /// storage client libraries asynchronous API's. When used in real applications this approach enables you to improve the 
+    /// responsiveness of your application. Calls to the storage service are prefixed by the await keyword. 
+    /// 
+    /// Documentation References: 
+    /// - What is a Storage Account - https://docs.microsoft.com/azure/storage/common/storage-create-storage-account
+    /// - Getting Started with Blobs - https://docs.microsoft.com/azure/storage/blobs/storage-dotnet-how-to-use-blobs
+    /// - Blob Service Concepts - https://docs.microsoft.com/rest/api/storageservices/Blob-Service-Concepts
+    /// - Blob Service REST API - https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API
+    /// - Blob Service C# API - https://docs.microsoft.com/dotnet/api/overview/azure/storage?view=azure-dotnet
+    /// - Scalability and performance targets - https://docs.microsoft.com/azure/storage/common/storage-scalability-targets
+    ///   Azure Storage Performance and Scalability checklist https://docs.microsoft.com/azure/storage/common/storage-performance-checklist
+    /// - Storage Emulator - https://docs.microsoft.com/azure/storage/common/storage-use-emulator
+    /// - Asynchronous Programming with Async and Await  - http://msdn.microsoft.com/library/hh191443.aspx
+    /// </summary>
+
     class Program
     {
 
         static void Main(string[] args)
         {
-            string argument = "";
-            var currentdir = System.IO.Directory.GetCurrentDirectory();
-
-            // Set threading and default connection limit to 100 to ensure multiple threads and connections can be opened.  This is in addition to parallelism with the storage client library.
+            // Set threading and default connection limit to 100 to ensure multiple threads and connections can be opened.
+            // This is in addition to parallelism with the storage client library that is defined in the functions below.
             ThreadPool.SetMinThreads(100, 4);
             ServicePointManager.DefaultConnectionLimit = 100; //(Or More)
 
-            // Allow the user to pass arguments for upload, download, or both to allow for flexibility in the application.
-            if (args.Length > 0)
-            {
-                argument = args[0].ToString();
-            }
-            switch (argument)
-            {
-                case "upload":
-                    {
-                        UploadFilesAsync(args).Wait();
-                        break;
-                    }
-                case "download":
-                    {
-                        DownloadFilesAsync(args).Wait();
-                        break;
-                    }
-                default:
-                    {
-                        UploadFilesAsync(args).Wait();
-                        
-                        DownloadFilesAsync(args).Wait();
-                        break;
-                    }
-            }
+            // Call the UploadFilesAsync function.
+            UploadFilesAsync().Wait();
+            // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
+            // initially to support the tutorial at http://inserturlhere.
+            //DownloadFilesAsync().Wait();
             Console.WriteLine("Application complete. After you press any key the container and blobs will be deleted.");
             Console.ReadKey();
-            Util.DeleteExistingContainersAsync().Wait();
+            // The following function will delete the container and all files contained in them.  This is commented out initialy
+            // As the tutorial at http://inserturlhere has you upload only for one tutorial and download for the other. 
+            //Util.DeleteExistingContainersAsync().Wait();
         }
 
-        private static async Task UploadFilesAsync(string[] args)
+        private static async Task UploadFilesAsync()
         {
             // Create random 5 characters containers to upload files to.
             CloudBlobContainer[] containers = Util.GetRandomContainers();
@@ -96,7 +97,7 @@
                             StoreBlobContentMD5 = false }, null));
                     count++;
                 }
-                // Wait for all the asynchronous uploads are complete.
+                // Creates an asynchonous task that completes when all the uploads complete.
                 await Task.WhenAll(Tasks);
             }
             catch (Exception ex)
@@ -110,7 +111,7 @@
             Console.ReadLine();
         }
 
-        private static async Task DownloadFilesAsync(string[] args)
+        private static async Task DownloadFilesAsync()
         {
             // Retrieve the list of containers in the storage account.  Create a directory and configure variables for use later.
             List<CloudBlobContainer> containers = await Util.ListContainers();
@@ -141,6 +142,7 @@
                     }
                     while (continuationToken != null);
                 }
+                // Creates an asynchonous task that completes when all the downloads complete.
                 await Task.WhenAll(Tasks);
             }
             catch (Exception e)
