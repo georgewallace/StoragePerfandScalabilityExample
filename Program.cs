@@ -197,7 +197,7 @@
                         {
                             foreach (var blobItem in resultSegment.Results)
                             {
-                                if(blobItem.GetType().ToString() == "BlockBlob")
+                                if(((CloudBlob)blobItem).Properties.BlobType == BlobType.BlockBlob)
                                 { 
                                 // Get the blob and add a task to download the blob asynchronously from the storage account.
                                 CloudBlockBlob blockBlob = container.GetBlockBlobReference(((CloudBlockBlob)blobItem).Name);
