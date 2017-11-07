@@ -1,4 +1,3 @@
-Start-Transcript
 Invoke-WebRequest "https://dot.net/v1/dotnet-install.ps1" -OutFile "./dotnet-install.ps1" 
 ./dotnet-install.ps1 -Channel 2.0 -InstallDir c:\dotnet
 
@@ -25,6 +24,15 @@ Write-host "restoring nuget packages"
 c:\dotnet\dotnet.exe restore
 c:\dotnet\dotnet.exe build
 
+$OldPath=(Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).Path
+
+$dotnetpath = "c:\dotnet"
+IF(Test-Path -Path $dotnetpath)
+{
+$NewPath=$OldPath+';'+$dotnetpath
+Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $NewPath
+}
+
 New-Item -ItemType Directory D:\git\StoragePerfandScalabilityExample\upload
 Set-Location D:\git\StoragePerfandScalabilityExample\upload
 Write-host "cretting files"
@@ -35,13 +43,5 @@ $out = new-object byte[] 1073741824;
 [IO.File]::WriteAllBytes("D:\git\StoragePerfandScalabilityExample\upload\$([guid]::NewGuid().ToString()).txt", $out)
 }
 
-$OldPath=(Get-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name PATH).Path
 
-$dotnetpath = "c:\dotnet"
-IF(Test-Path -Path $dotnetpath)
-{
-$NewPath=$OldPath+';'+$dotnetpath
-Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\Environment' -Name PATH -Value $NewPath
-}
 
-Stop-Transcript

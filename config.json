@@ -1,4 +1,3 @@
 ﻿{
   "StorageConnectionString": "UseDevelopmentStorage=true;"
-//  "StorageConnectionString": "DefaultEndpointsProtocol=https;AccountName=mystoragegwaccount;AccountKey=NJ/YrqzlEg4SgvSzcZSyaHmxi+NkgYzCr2pLXZzyZv1maPxHqXB/vRoAWTRGUrBYfXF7h5O0R4lVCxNynOx7qQ==;EndpointSuffix=core.windows.net"//
 }
