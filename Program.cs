@@ -221,7 +221,7 @@
             Console.ReadLine();
         }
 
-        // Deletes the containers in a storage account.
+        // Iterates through the containers in a storage account using the ListContainersSegmentedAsync method. Then it deletes the containers which subsequently deletes the blobs .
         public static async Task DeleteExistingContainersAsync()
         {
             CloudBlobClient blobClient = GetCloudBlobClient();
