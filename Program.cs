@@ -21,7 +21,7 @@
     /// Azure blob storage in conjunction with large block sizes to transfer larges amount of data 
     /// effectiviely and efficiently.
     ///
-    /// Note: This sample uses the .NET 4.5 asynchronous programming model to demonstrate how to call the Storage Service using the 
+    /// Note: This sample uses the .NET asynchronous programming model to demonstrate how to call the Storage Service using the 
     /// storage client libraries asynchronous API's. When used in real applications this approach enables you to improve the 
     /// responsiveness of your application. Calls to the storage service are prefixed by the await keyword. 
     /// 
@@ -61,7 +61,7 @@
                     await blobContainers[i].CreateIfNotExistsAsync();
                     Console.WriteLine("Created container {0}", blobContainers[i].Uri);
                 }
-                catch (Exception ex)
+                catch
                 {
                     Console.WriteLine("If you are running with the default configuration please make sure you have started the storage emulator. Press the Windows key and type Azure Storage to select and run it from the list of applications - then restart the sample.");
                     Console.ReadLine();
@@ -96,7 +96,7 @@
                 UploadFilesAsync().Wait();
                 // Uncomment the following line to enable downloading of files from the storage account.  This is commented out
                 // initially to support the tutorial at http://inserturlhere.
-                //DownloadFilesAsync().Wait();
+                // DownloadFilesAsync().Wait();
                 Console.WriteLine("Application complete. Press any key to exit");
                 Console.ReadKey();
             }
@@ -108,7 +108,7 @@
             {
                 // The following function will delete the container and all files contained in them.  This is commented out initialy
                 // As the tutorial at http://inserturlhere has you upload only for one tutorial and download for the other. 
-                //Util.DeleteExistingContainersAsync().Wait();
+                // DeleteExistingContainersAsync().Wait();
             }
         }
 
@@ -197,10 +197,13 @@
                         {
                             foreach (var blobItem in resultSegment.Results)
                             {
+                                if(blobItem.GetType().ToString() == "BlockBlob")
+                                { 
                                 // Get the blob and add a task to download the blob asynchronously from the storage account.
                                 CloudBlockBlob blockBlob = container.GetBlockBlobReference(((CloudBlockBlob)blobItem).Name);
                                 Console.WriteLine("Starting download of {0} from container {1}", blockBlob.Name, container.Name);
                                 Tasks.Add(blockBlob.DownloadToFileAsync(directory.FullName + "\\" + blockBlob.Name, FileMode.Create, null, new BlobRequestOptions() { DisableContentMD5Validation = true, StoreBlobContentMD5 = false }, null));
+                                }
                             }
                         }
                     }

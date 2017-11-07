@@ -35,8 +35,8 @@ Set-ItemProperty -Path 'HKLM:\SYSTEM\CurrentControlSet\Control\Session Manager\E
 
 New-Item -ItemType Directory D:\git\StoragePerfandScalabilityExample\upload
 Set-Location D:\git\StoragePerfandScalabilityExample\upload
-Write-host "cretting files"
-for($i=0; $i -lt 100; $i++)
+Write-host "Creating files"
+for($i=0; $i -lt 32; $i++)
 {
 $out = new-object byte[] 1073741824; 
 (new-object Random).NextBytes($out); 
